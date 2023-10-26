@@ -4,19 +4,15 @@ class Solution:
         Do not return anything, modify matrix in-place instead.
         """
         n = len(matrix)
-
-    # Create a new matrix with the same dimensions as the original matrix
-        new_matrix = [[0 for _ in range(n)] for _ in range(n)]
-
+    
+    # Transpose the matrix in-place
         for i in range(n):
-            for j in range(n):
-                # Copy elements from the original matrix to the new matrix with rotation
-                new_matrix[j][n - 1 - i] = matrix[i][j]
+            for j in range(i, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
 
-        # Copy the rotated elements back to the original matrix (in-place)
+        # Reverse the rows in-place
         for i in range(n):
-            for j in range(n):
-                matrix[i][j] = new_matrix[i][j]
+            matrix[i].reverse()
 
-        return new_matrix
+        return matrix
             
