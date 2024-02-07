@@ -31,3 +31,5 @@ class Solution:
                     dfs(r, c)  # Start DFS to explore the island
 
         return islands
+
+print("This is new message")
